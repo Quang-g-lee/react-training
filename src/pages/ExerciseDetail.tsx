@@ -1,6 +1,7 @@
 ﻿import { useParams } from "react-router-dom";
 import UserTable from "../components/UserTable";
 import { mockUsers } from "../data/mockUsers";
+import UserValidationForm from '../components/UserValidationForm'
 
 function ExerciseDetail() {
     const { id } = useParams();
@@ -45,6 +46,21 @@ function ExerciseDetail() {
             <UserTable users={mockUsers} />
         )
     }
+
+    if (id === '4') {
+        return (
+            <section>
+                <h1>Thực hành validate form</h1>
+                <h2>Thực hành validate form - onBlur</h2>
+
+                <UserValidationForm mode="onBlur" />
+
+                <h2>Thực hành validate form - onSubmit</h2>
+
+                <UserValidationForm mode="onSubmit" />
+            </section>
+        )
+}
 
     return <h1>Chi tiết bài tập {id}</h1>;
 }

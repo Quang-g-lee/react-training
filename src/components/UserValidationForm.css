@@ -1,0 +1,42 @@
+.validation-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 24px;
+    max-width: 900px;
+    margin-bottom: 40px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field label {
+    font-weight: 600;
+}
+
+.form-field input,
+.form-field .ant-picker {
+    width: 100%;
+    min-height: 38px;
+    box-sizing: border-box;
+}
+
+.error-message {
+    min-height: 18px;
+    margin: 0;
+    color: #ff4d4f;
+    font-size: 13px;
+}
+
+.validation-form button {
+    width: 100px;
+    min-height: 38px;
+}
+
+@media (max-width: 700px) {
+    .validation-form {
+        grid-template-columns: 1fr;
+    }
+}
