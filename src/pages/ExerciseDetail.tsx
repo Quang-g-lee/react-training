@@ -1,4 +1,6 @@
 ﻿import { useParams } from "react-router-dom";
+import UserTable from "../components/UserTable";
+import { mockUsers } from "../data/mockUsers";
 
 function ExerciseDetail() {
     const { id } = useParams();
@@ -36,6 +38,12 @@ function ExerciseDetail() {
                 <p>Sử dụng Redux để lưu trạng thái đăng nhập.</p>
             </section>
         );
+    }
+
+    if (id === '3') {
+        return (
+            <UserTable users={mockUsers} />
+        )
     }
 
     return <h1>Chi tiết bài tập {id}</h1>;

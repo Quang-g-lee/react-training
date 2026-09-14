@@ -1,0 +1,141 @@
+.mock-users {
+    color: #111827;
+    font-size: 14px;
+}
+
+.mock-users__title {
+    margin: 0 0 24px;
+    font-weight: 700;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px 8px 0 0;
+}
+
+.user-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background: #fff;
+    text-align: left;
+}
+
+.user-table th,
+.user-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+}
+
+.column-id { width: 5%; }
+.column-first-name { width: 7%; }
+.column-last-name { width: 8%; }
+.column-age { width: 5%; }
+.column-address { width: 13%; }
+.column-birthday { width: 8%; }
+.column-sex { width: 6%; }
+.column-job { width: 9%; }
+.column-phone { width: 10%; }
+.column-tier { width: 9%; }
+.column-avatar { width: 7%; }
+.column-action { width: 13%; }
+
+.user-table th {
+    background: #fafafa;
+    color: #1f1f1f;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.user-table tbody tr:hover {
+    background: #fafafa;
+}
+
+.user-table th button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-weight: inherit;
+}
+
+.user-table th button span {
+    margin-left: 6px;
+    color: #bfbfbf;
+}
+
+.user-table img {
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-actions button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.user-actions__invite,
+.user-actions__delete {
+    color: inherit;
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
+    align-items: center;
+}
+
+.pagination button {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.pagination button:hover:not(:disabled),
+.pagination button.active {
+    border-color: #1677ff;
+    color: #1677ff;
+}
+
+.pagination button:disabled {
+    color: #bfbfbf;
+    cursor: not-allowed;
+}
+
+.pagination__ellipsis {
+    min-width: 32px;
+    text-align: center;
+    color: #8c8c8c;
+}
+
+.pagination select {
+    height: 32px;
+    margin-left: 16px;
+    padding: 0 10px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    background: #fff;
+}
+
+@media (max-width: 1200px) {
+    .user-table {
+        min-width: 1100px;
+    }
+}
