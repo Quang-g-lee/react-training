@@ -26,7 +26,20 @@ function UserValidationForm({ mode }: UserValidationFormProps) {
         register, handleSubmit, watch, control, formState: { errors, isValid }
     } = useForm<FormValues>({ mode })
 
-    const handleValidSubmit = (data: FormValues) => { console.log(data) }
+    const handleValidSubmit = (data: FormValues) => {
+        const payload = {
+            ...data,
+            dateOfBirth: data.dateOfBirth?.format('YYYY-MM-DD'),
+            activeDate: data.activeDate
+                ? {
+                    startDate: data.activeDate[0].format('YYYY-MM-DD'),
+                    endDate: data.activeDate[1].format('YYYY-MM-DD'),
+                }
+                : null,
+        }
+
+        console.log(payload)
+    }
 
     return (
         <form className="validation-form" onSubmit={handleSubmit(handleValidSubmit)}>
@@ -179,7 +192,7 @@ function UserValidationForm({ mode }: UserValidationFormProps) {
                             value={field.value}
                             onChange={field.onChange}
                             onBlur={field.onBlur}
-                            format="DD/MM/YYYY"
+                            format="YYYY-MM-DD"
                             disabledDate={(currentDate) =>
                                 currentDate.isBefore(dayjs('1980-01-01'), 'day') ||
                                 currentDate.isAfter(dayjs('2020-12-31'), 'day')
@@ -283,7 +296,7 @@ function UserValidationForm({ mode }: UserValidationFormProps) {
                             value={field.value}
                             onChange={field.onChange}
                             onBlur={field.onBlur}
-                            format="DD/MM/YYYY"
+                            format="YYYY-MM-DD"
                             disabledDate={(currentDate) =>
                                 currentDate.isBefore(
                                     dayjs().startOf('day'),
