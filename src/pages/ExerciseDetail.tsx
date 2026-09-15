@@ -2,6 +2,7 @@
 import UserTable from "../components/UserTable";
 import { mockUsers } from "../data/mockUsers";
 import UserValidationForm from '../components/UserValidationForm'
+import ProductTable from "../components/ProductTable";
 
 function ExerciseDetail() {
     const { id } = useParams();
@@ -60,7 +61,17 @@ function ExerciseDetail() {
                 <UserValidationForm mode="onSubmit" />
             </section>
         )
-}
+    }
+
+    if (id === '5') {
+        return (
+            <section>
+                <h1>Thực hành xử lý bảng + dữ liệu ( dynamic table )</h1>
+                <ProductTable />
+            </section>
+        )
+    }
+
 
     return <h1>Chi tiết bài tập {id}</h1>;
 }
