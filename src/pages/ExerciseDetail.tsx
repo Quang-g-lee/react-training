@@ -3,6 +3,7 @@ import UserTable from "../components/UserTable";
 import { mockUsers } from "../data/mockUsers";
 import UserValidationForm from '../components/UserValidationForm'
 import ProductTable from "../components/ProductTable";
+import ExtendedFilterForm from '../components/ExtendedFilterForm'
 
 function ExerciseDetail() {
     const { id } = useParams();
@@ -70,6 +71,10 @@ function ExerciseDetail() {
                 <ProductTable />
             </section>
         )
+    }
+
+    if (id === '6') {
+        return <ExtendedFilterForm />
     }
 
 

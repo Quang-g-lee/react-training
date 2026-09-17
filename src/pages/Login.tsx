@@ -1,5 +1,5 @@
 import type { FormEvent } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { login } from '../store/authSlice'
 import type { AppDispatch } from '../store'
@@ -8,11 +8,16 @@ import './Login.css'
 function Login() {
     const dispatch = useDispatch<AppDispatch>()
     const navigate = useNavigate()
+    const location = useLocation()
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         dispatch(login())
-        navigate('/welcome', { replace: true })
+        const from = (location.state as { from?: string } | null)?.from
+        const destination = from?.startsWith('/') && !from.startsWith('//')
+            ? from
+            : '/welcome'
+        navigate(destination, { replace: true })
     }
 
     return (
